@@ -38,8 +38,8 @@ Moreover, the quality of the produced output is dependent on
 -}
 int : Int -> Int -> Task Error Int
 int from to =
-    Native.SecureRandom.getRandomInt ()
-    |> Task.map (compressInt from to)
+  Native.SecureRandom.getRandomInt ()
+  |> Task.map (compressInt from to)
 
 {-| Generate a list of random 32-bit integers in a given range.
 
@@ -47,9 +47,9 @@ int from to =
 -}
 ints : Int -> Int -> Int -> Task Error (List Int)
 ints from to n =
-    -- @TODO how do we arg check here? do we throw errors in JS? Task.fail? etc?
-    Native.SecureRandom.getRandomInts (min 0 n)
-    |> Task.map (List.map (compressInt from to))
+  -- @TODO how do we arg check here? do we throw errors in JS? Task.fail? etc?
+  Native.SecureRandom.getRandomInts (min 0 n)
+  |> Task.map (List.map (compressInt from to))
 
 {-| Generate a random boolean value.
 
@@ -60,15 +60,15 @@ ints from to n =
 -}
 bool : Task Error Bool
 bool =
-    Native.SecureRandom.getRandomInt ()
-    |> Task.map (\x -> x % 2 == 0)
+  Native.SecureRandom.getRandomInt ()
+  |> Task.map (\x -> x % 2 == 0)
 
 {-| Generate a list of random boolean values.
 -}
 bools : Int -> Task Error (List Bool)
 bools n =
-    Native.SecureRandom.getRandomInts (min 0 n)
-    |> Task.map (List.map (\x -> x % 2 == 0))
+  Native.SecureRandom.getRandomInts (min 0 n)
+  |> Task.map (List.map (\x -> x % 2 == 0))
 
 {-| Generate a random floating point number in a given range.
 
@@ -76,8 +76,8 @@ bools n =
 -}
 float : Float -> Float -> Task Error Float
 float from to =
-    Native.SecureRandom.getRandomInt ()
-    |> Task.map (compressFloat from to)
+  Native.SecureRandom.getRandomInt ()
+  |> Task.map (compressFloat from to)
 
 {-| Generate a list of random floating point numbers in a given range.
 
@@ -85,8 +85,8 @@ float from to =
 -}
 floats : Float -> Float -> Int -> Task Error (List Float)
 floats from to n =
-    Native.SecureRandom.getRandomInts (min 0 n)
-    |> Task.map (List.map (compressFloat from to))
+  Native.SecureRandom.getRandomInts (min 0 n)
+  |> Task.map (List.map (compressFloat from to))
 
 compressInt : Int -> Int -> Int -> Int
 compressInt from to x = x % (to - from + 1) + from
