@@ -1,13 +1,20 @@
-module SecureRandom (int, ints, bool, bools, float, floats) where
+module Random.Secure (int, ints, bool, bools, float, floats) where
 
 {-| A library for generating cryptographically random values.
 
-All generation functions return some sort of a [`Task`](#Task), as the
-generation algorithm is dependent on the browser's global state and is
-not referentially transparent.
+Contrary to the [`Random`](#Random) module, which provides purely functional,
+and therefore repeatable random generators, this module allows you to
+generate cryptographically random values that can be used in applications
+where security is required.
 
-*Note:* As this library depends on `window.crypto.getRandomValues` JavaScript API,
-it therefore will share all the randomness properties with the underlying
+All generation functions return a [`Task`](#Task), as the
+generation algorithm is dependent on the browser's global state
+(the [`getRandomValues`](https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues) function])
+and is not referentially transparent.
+
+*Note:* As this library depends on the
+[`window.crypto.getRandomValues`](https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues)
+JavaScript API, it therefore will share all the randomness qualities with the underlying
 implementation.
 
 # Primitive random values

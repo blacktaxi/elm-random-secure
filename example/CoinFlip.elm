@@ -5,10 +5,9 @@ import Signal exposing (Signal, Address)
 import Task exposing (Task)
 import StartApp
 import Html exposing (..)
-import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
-import SecureRandom
+import Random.Secure
 
 type alias Model = { coin : Maybe Bool }
 
@@ -25,7 +24,7 @@ update action model =
   case action of
     Toss ->
       ( model
-      , SecureRandom.bool
+      , Random.Secure.bool
           |> Task.toMaybe
           |> Task.map Catch
           |> Effects.task

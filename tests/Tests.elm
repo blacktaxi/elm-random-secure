@@ -4,6 +4,8 @@ import Task
 import Console
 import ElmTest exposing (..)
 
+import Random.Secure exposing (..)
+
 hello : Test
 hello =
   suite "hello suite" <|
