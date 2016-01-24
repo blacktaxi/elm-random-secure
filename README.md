@@ -1,4 +1,4 @@
-# elm-securerandom [![Build Status](https://travis-ci.org/blacktaxi/elm-securerandom.svg)](https://travis-ci.org/blacktaxi/elm-securerandom)
+# elm-random-secure [![Build Status](https://travis-ci.org/blacktaxi/elm-random-secure.svg)](https://travis-ci.org/blacktaxi/elm-random-secure)
 
 Cryptographic random number generation for Elm.
 
@@ -10,7 +10,7 @@ API to generate cryptographic random values in Elm.
 Random generation function return a `Task`. Depending on your use case, you might want to convert
 the task to an `Effects` or otherwise use it.
 
-Assuming you're using [start-app](), in your `update` function:
+Assuming you're using [start-app](https://github.com/evancz/start-app), in your `update` function:
 
 ```elm
 update : Action -> Model -> (Model, Effects Action)
