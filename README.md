@@ -1,4 +1,4 @@
-# elm-securerandom
+# elm-securerandom [![Build Status](https://travis-ci.org/blacktaxi/elm-securerandom.svg)](https://travis-ci.org/blacktaxi/elm-securerandom)
 
 Cryptographic random number generation for Elm.
 
