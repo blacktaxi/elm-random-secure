@@ -1,0 +1,23 @@
+{
+  "name": "elm-securerandom",
+  "version": "0.0.0",
+  "description": "Cryptographic random number generation for Elm.",
+  "main": "\"\"",
+  "scripts": {
+    "test": "cd tests && ./test.sh",
+    "install": "elm package install -y"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blacktaxi/elm-securerandom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blacktaxi/elm-securerandom/issues"
+  },
+  "homepage": "https://github.com/blacktaxi/elm-securerandom",
+  "devDependencies": {
+    "elm": "^0.16.0"
+  }
+}
