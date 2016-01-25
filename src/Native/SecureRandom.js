@@ -12,16 +12,39 @@ Elm.Native.SecureRandom.make = function(localRuntime) {  // eslint-disable-line 
     && typeof window.crypto.getRandomValues === 'function') {
     var crypto = window.crypto;
 
+    function runAsTask(action) {
+      return Task.asyncFunction(function (callback) {
+        var result, errorName = null, errorMessage = null;
+
+        try { result = action(); }
+        catch (err) {
+          if (typeof err === 'object') {
+            errorName = err.name || "";
+            errorMessage = err.message || err.toString();
+          } else {
+            errorName = typeof err;
+            errorMessage = err.toString();
+          }
+        }
+
+        if (error !== null) {
+          callback(Task.fail({ ctor: 'Exception', _0: errorName, _1: errorMessage }));
+        } else {
+          callback(Task.succeed(result));
+        }
+      });
+    }
+
     return localRuntime.Native.SecureRandom.values = {
       getRandomInts: function (count) {
-        return Task.asyncFunction(function (callback) {
-          callback(Task.succeed(crypto.getRandomValues(new Uint32Array(count))));
+        return runAsTask(function () {
+          return crypto.getRandomValues(new Uint32Array(count));
         });
       },
 
       getRandomInt: function () {
-        return Task.asyncFunction(function (callback) {
-          callback(Task.succeed(crypto.getRandomValues(new Uint32Array(1))[0]));
+        return runAsTask(function () {
+          return crypto.getRandomValues(new Uint32Array(1))[0];
         });
       }
     };

@@ -30,6 +30,7 @@ import Task exposing (Task)
 
 type Error
   = NoGetRandomValues
+  | Exception String String
 
 {-| Generate a random 32-bit integer in a given range.
 
