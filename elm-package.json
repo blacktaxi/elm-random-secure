@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1",
+    "version": "1.0.0",
     "summary": "Generate cryptographically random values",
     "repository": "https://github.com/blacktaxi/elm-random-secure.git",
     "license": "BSD3",
