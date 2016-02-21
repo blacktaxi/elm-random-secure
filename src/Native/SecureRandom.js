@@ -27,7 +27,7 @@ Elm.Native.SecureRandom.make = function(localRuntime) {  // eslint-disable-line 
           }
         }
 
-        if (error !== null) {
+        if (errorName !== null) {
           callback(Task.fail({ ctor: 'Exception', _0: errorName, _1: errorMessage }));
         } else {
           callback(Task.succeed(result));
