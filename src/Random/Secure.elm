@@ -1,4 +1,4 @@
-module Random.Secure (int, ints, bool, bools, float, floats) where
+module Random.Secure exposing (int, ints, bool, bools, float, floats)
 
 {-| A library for generating cryptographically random values.
 
